@@ -26,7 +26,7 @@ class EvilGenius < Player
 
   def consider_answer(turn, result)
     @answer_set.delete_if { |entry| result != check_codes(@history[turn][:code], entry) }
-    @next_guess = @answer_set[0]
+    @next_guess = @answer_set[rand(0..(@answer_set.length - 1))]
   end
 
   def maker_setup
